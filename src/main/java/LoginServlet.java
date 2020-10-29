@@ -24,7 +24,17 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
+        PrintWriter writer = response.getWriter();
+        writer.println("<html>");
+        if ("admin".equals(username) && "admin".equals(password)){
+            writer.println("<h1>"+username+"</h1>");
+        }else {
+            writer.println("<h1> login erro </h1>");
+        }
+        writer.println("</html>");
 
     }
 }
